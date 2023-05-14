@@ -1,0 +1,38 @@
+{
+  "appName": {
+    "data": {
+      "model": {
+        "appName.model.dart": "class appNameModel {}"
+      },
+      "repository": {
+        "appName.repositoryImpl.dart": "class appNameRepositoryImpl {}"
+      }
+    },
+    "domain": {
+      "entities": {
+        "appName.entity.dart": "class appNameEntity {}"
+      },
+      "exceptions": null,
+      "usecase": null
+    },
+    "infrastructure": {
+      "adapters": null,
+      "repository": {
+        "appName.repository.dart": "abstract class appNameRepository {}"
+      }
+    },
+    "presentation": {
+      "controllers": {
+        "appName.controller.dart": "class appNameController {}"
+      },
+      "dto": {
+        "input": {
+          "appName.input.ts": ""
+        },
+        "output": {
+          "appName.output.ts": ""
+        }
+      }
+    }
+  }
+}
