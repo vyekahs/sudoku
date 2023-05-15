@@ -1,22 +1,22 @@
 import 'package:equatable/equatable.dart';
 
-import 'puzzle.entity.dart';
+import 'puzzle_entity.dart';
 
 class SaveData extends Equatable {
-  final int id;
+  final String id;
   final Puzzle puzzle;
   final double elapsedTime;
   final int hintCount;
-  final String creationDate;
+  final String createdDate;
 
   const SaveData({
     required this.id,
     required this.puzzle,
     required this.elapsedTime,
     required this.hintCount,
-    required this.creationDate,
+    required this.createdDate,
   });
 
   @override
-  List<Object?> get props => [id, puzzle, elapsedTime, hintCount, creationDate];
+  List<Object?> get props => [id, puzzle, elapsedTime, hintCount, createdDate];
 }

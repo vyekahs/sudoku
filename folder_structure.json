@@ -2,28 +2,30 @@
   "appName": {
     "data": {
       "model": {
-        "appName.model.dart": "class appNameModel {}"
+        "puzzle_model_test.dart": "",
+        "save_data_model_test.dart": "",
+        "state_model_test.dart": ""
       },
-      "repository": {
-        "appName.repositoryImpl.dart": "class appNameRepositoryImpl {}"
-      }
+      "repository": null
     },
     "domain": {
       "entities": {
-        "appName.entity.dart": "class appNameEntity {}"
+        "difficult_state_entity_test.dart": "",
+        "puzzle_entity_test.dart": "",
+        "save_entity_test.dart": "",
+        "setting_entity_test.dart": "",
+        "state_entity_test.dart": ""
       },
       "exceptions": null,
       "usecase": null
     },
     "infrastructure": {
       "adapters": null,
-      "repository": {
-        "appName.repository.dart": "abstract class appNameRepository {}"
-      }
+      "repository": null
     },
     "presentation": {
       "controllers": {
-        "appName.controller.dart": "class appNameController {}"
+        "appName.controller_test.dart": ""
       },
       "dto": {
         "input": {

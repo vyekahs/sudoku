@@ -1,9 +1,9 @@
 import 'dart:convert';
 
-import '../../domain/entities/state.entity.dart';
+import '../../domain/entities/state_entity.dart';
 
 class StateModel extends StatsEntity {
-  StateModel({
+  const StateModel({
     required super.totalGames,
     required super.totalTime,
     required super.totalHintsUsed,

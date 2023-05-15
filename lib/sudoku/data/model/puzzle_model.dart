@@ -1,42 +1,54 @@
-import 'package:sudoku/sudoku/domain/entities/puzzle.entity.dart';
+import 'dart:convert';
 
 import '../../core/enum/difficulty.dart';
+import '../../domain/entities/puzzle_entity.dart';
 
 class PuzzleModel extends Puzzle {
-  const PuzzleModel(
-      {required super.puzzleGrid,
-      required super.solutionGrid,
-      required super.memoGrid,
-      required super.difficulty});
+  late List<List<int>> _puzzleGrid;
+  late List<List<int>> _solutionGrid;
+  late List<List<List<int>>> _memoGrid;
+
+  PuzzleModel({
+    required Difficulty difficulty,
+    required List<List<int>> puzzleGrid,
+    required List<List<int>> solutionGrid,
+    required List<List<List<int>>> memoGrid,
+  }) : super(difficulty: difficulty) {
+    _puzzleGrid = puzzleGrid;
+    _solutionGrid = solutionGrid;
+    _memoGrid = memoGrid;
+  }
 
   Map<String, dynamic> toMap() {
     return {
-      'puzzleGrid': puzzleGrid,
-      'solutionGrid': solutionGrid,
-      'memoGrid': memoGrid,
-      'difficulty': difficulty,
+      'difficulty': difficulty.index,
+      'puzzleGrid': _puzzleGrid,
+      'solutionGrid': _solutionGrid,
+      'memoGrid': _memoGrid,
     };
   }
 
-  static Puzzle fromMap(Map<String, dynamic> map) {
-    List<List<int>> puzzleGrid = List<List<int>>.from(map['puzzleGrid'])
-        .map((row) => List<int>.from(row))
-        .toList();
-    List<List<int>> solutionGrid = List<List<int>>.from(map['solutionGrid'])
-        .map((row) => List<int>.from(row))
-        .toList();
-    List<List<List<int>>> memoGrid = List<List<List<int>>>.from(map['memoGrid'])
-        .map((row) => List<List<int>>.from(row)
-            .map((cell) => List<int>.from(cell))
-            .toList())
-        .toList();
-    Difficulty difficulty = map['difficulty'];
-    Puzzle puzzle = Puzzle(
-        difficulty: difficulty,
-        puzzleGrid: puzzleGrid,
-        solutionGrid: solutionGrid,
-        memoGrid: memoGrid);
-
-    return puzzle;
+  factory PuzzleModel.fromMap(Map<String, dynamic> json) {
+    return PuzzleModel(
+      difficulty: Difficulty.values[json['difficulty']],
+      puzzleGrid: List<List<int>>.from(
+        json['puzzleGrid'].map((grid) => List<int>.from(grid)),
+      ),
+      solutionGrid: List<List<int>>.from(
+        json['solutionGrid'].map((grid) => List<int>.from(grid)),
+      ),
+      memoGrid: List<List<List<int>>>.from(
+        json['memoGrid'].map(
+          (grid) => List<List<int>>.from(
+            grid.map((memo) => List<int>.from(memo)),
+          ),
+        ),
+      ),
+    );
   }
+
+  String toJson() => json.encode(toMap());
+
+  factory PuzzleModel.fromJson(String source) =>
+      PuzzleModel.fromMap(json.decode(source));
 }

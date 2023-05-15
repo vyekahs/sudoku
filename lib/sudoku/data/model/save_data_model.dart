@@ -1,5 +1,5 @@
 import 'dart:convert';
-import '../../domain/entities/save.entity.dart';
+import '../../domain/entities/save_entity.dart';
 import 'puzzle_model.dart';
 
 class SaveDataModel extends SaveData {
@@ -9,27 +9,27 @@ class SaveDataModel extends SaveData {
       required super.puzzle,
       required super.elapsedTime,
       required super.hintCount,
-      required super.creationDate}) {
+      required super.createdDate}) {
     puzzleModel = puzzle as PuzzleModel;
   }
 
   Map<String, dynamic> toMap() {
     return {
       'id': id,
-      'puzzle': puzzleModel.toMap(),
+      'puzzle': puzzleModel.toJson(),
       'elapsedTime': elapsedTime,
       'hintCount': hintCount,
-      'creationDate': creationDate,
+      'creationDate': createdDate,
     };
   }
 
   factory SaveDataModel.fromMap(Map<String, dynamic> map) {
     return SaveDataModel(
       id: map['id']?.toInt() ?? 0,
-      puzzle: PuzzleModel.fromMap(map['puzzle']),
+      puzzle: PuzzleModel.fromJson(map['puzzle']),
       elapsedTime: map['elapsedTime']?.toDouble() ?? 0.0,
       hintCount: map['hintCount']?.toInt() ?? 0,
-      creationDate: map['creationDate'] ?? '',
+      createdDate: map['creationDate'] ?? '',
     );
   }
 

@@ -1,8 +1,9 @@
+
 import 'package:equatable/equatable.dart';
 
 import '../../core/enum/difficulty.dart';
-import 'difficult_state.entity.dart';
-import 'save.entity.dart';
+import 'difficult_state_entity.dart';
+import 'save_entity.dart';
 
 class StatsEntity extends Equatable {
   final int totalGames;
