@@ -1,9 +1,8 @@
-
 import 'package:equatable/equatable.dart';
 
 import '../../core/enum/difficulty.dart';
 import 'difficult_state_entity.dart';
-import 'save_entity.dart';
+import 'game_entity.dart';
 
 class StatsEntity extends Equatable {
   final int totalGames;
@@ -17,7 +16,7 @@ class StatsEntity extends Equatable {
     required this.difficultyStats,
   });
 
-  StatsEntity updateStats(SaveData gameData) {
+  StatsEntity updateStats(GameData gameData) {
     Difficulty difficulty = gameData.puzzle.difficulty;
     DifficultyStats? stats = difficultyStats[difficulty];
     if (stats == null) {

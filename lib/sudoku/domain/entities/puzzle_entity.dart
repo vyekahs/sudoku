@@ -38,9 +38,9 @@ class Puzzle extends Equatable {
   }
 
   bool isComplete() {
-    for (int row = 0; row < 9; row++) {
-      for (int col = 0; col < 9; col++) {
-        if (_puzzleGrid[row][col] == 0) {
+    for (int i = 0; i < 9; i++) {
+      for (int j = 0; j < 9; j++) {
+        if (_puzzleGrid[i][j] != _solutionGrid[i][j]) {
           return false;
         }
       }

@@ -1,8 +1,8 @@
 import 'dart:convert';
-import '../../domain/entities/save_entity.dart';
+import '../../domain/entities/game_entity.dart';
 import 'puzzle_model.dart';
 
-class SaveDataModel extends SaveData {
+class SaveDataModel extends GameData {
   late final PuzzleModel puzzleModel;
   SaveDataModel(
       {required super.id,

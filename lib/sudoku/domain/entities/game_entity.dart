@@ -1,15 +1,16 @@
+
 import 'package:equatable/equatable.dart';
 
 import 'puzzle_entity.dart';
 
-class SaveData extends Equatable {
+class GameData extends Equatable {
   final String id;
   final Puzzle puzzle;
   final double elapsedTime;
   final int hintCount;
   final String createdDate;
 
-  const SaveData({
+  const GameData({
     required this.id,
     required this.puzzle,
     required this.elapsedTime,
